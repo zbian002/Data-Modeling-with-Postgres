@@ -6,6 +6,16 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    '''
+    Read song metadata from a JSON `filepath` file and insert the data into
+    song and artist tables based on different columns.
+    Parameters:
+    -----------
+    cur : psycopg2.cursor
+        cursor obtained from active session to execute PostgreSQL commands.
+    filepath : str or path object
+        path to the song file.
+    '''
     # open song file
     df = pd.read_json(filepath, lines=True)
 
